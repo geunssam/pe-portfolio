@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>야구 경기 기록 - 발야구 점수 관리</title>
+    <meta name="description" content="발야구 경기의 점수와 기록을 실시간으로 관리">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-bg': '#FFFFFF',
+                        'apple-secondary': '#F5F5F7',
+                        'apple-tertiary': '#E8E8ED',
+                        'apple-text': '#1D1D1F',
+                        'apple-text-secondary': '#6E6E73',
+                        'apple-text-tertiary': '#86868B',
+                        'apple-blue': '#0071E3',
+                        'apple-blue-hover': '#0077ED',
+                        'apple-border': '#D2D2D7',
+                    },
+                    fontFamily: {
+                        'sans': ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-apple-bg text-apple-text font-sans antialiased">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-apple-border">
+        <nav class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-semibold hover:text-apple-blue transition-colors">
+                ← 근쌤의 체육 웹앱
+            </a>
+            <a href="index.html#apps" class="text-sm text-apple-text-secondary hover:text-apple-blue transition-colors">
+                모든 앱 보기
+            </a>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+        <section class="py-16 px-8 bg-gradient-to-b from-orange-50 to-apple-bg">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="text-7xl mb-6">⚾</div>
+                <div class="inline-block px-4 py-2 bg-orange-100 rounded-full text-sm font-medium text-orange-700 mb-4">
+                    체육 경기 관리
+                </div>
+                <h1 class="text-5xl font-bold mb-4">야구 경기 기록</h1>
+                <p class="text-xl text-apple-text-secondary mb-8">
+                    발야구 경기의 점수와 기록을 실시간으로 관리
+                </p>
+                <a href="https://baseball-firebase.vercel.app/" target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-apple-blue text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-apple-blue-hover transition-all duration-300 hover:scale-105 shadow-lg">
+                    앱 실행하기 →
+                </a>
+            </div>
+        </section>
+
+        <section class="py-16 px-8">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">주요 화면</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-apple-secondary rounded-2xl aspect-video flex items-center justify-center">
+                        <p class="text-apple-text-secondary">스크린샷 1</p>
+                    </div>
+                    <div class="bg-apple-secondary rounded-2xl aspect-video flex items-center justify-center">
+                        <p class="text-apple-text-secondary">스크린샷 2</p>
+                    </div>
+                    <div class="bg-apple-secondary rounded-2xl aspect-video flex items-center justify-center">
+                        <p class="text-apple-text-secondary">스크린샷 3</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-8 bg-apple-secondary">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">주요 기능</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-8">
+                        <div class="text-3xl mb-4">⚡</div>
+                        <h3 class="text-xl font-semibold mb-2">실시간 점수 입력</h3>
+                        <p class="text-apple-text-secondary">경기 중 실시간으로 점수를 입력하고 관리합니다.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8">
+                        <div class="text-3xl mb-4">💾</div>
+                        <h3 class="text-xl font-semibold mb-2">경기 기록 저장</h3>
+                        <p class="text-apple-text-secondary">모든 경기 기록을 Firebase에 안전하게 저장합니다.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8">
+                        <div class="text-3xl mb-4">📱</div>
+                        <h3 class="text-xl font-semibold mb-2">모바일 최적화 UI</h3>
+                        <p class="text-apple-text-secondary">터치 최적화된 인터페이스로 편리하게 사용합니다.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8">
+                        <div class="text-3xl mb-4">📊</div>
+                        <h3 class="text-xl font-semibold mb-2">통계 분석</h3>
+                        <p class="text-apple-text-secondary">경기 통계를 분석하고 시각화합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">기술 정보</h2>
+                <div class="bg-white rounded-2xl p-8 border border-apple-border">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <p class="text-sm text-apple-text-secondary mb-2">사용 기술</p>
+                            <p class="font-semibold">Firebase, 모바일 최적화</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-apple-text-secondary mb-2">배포 플랫폼</p>
+                            <p class="font-semibold">Vercel</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-apple-text-secondary mb-2">카테고리</p>
+                            <p class="font-semibold">체육 경기 관리</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-8 bg-apple-secondary">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">다른 웹앱 보기</h2>
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+                    <a href="dodgeball.html" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                        <div class="text-4xl mb-2">⚽</div>
+                        <p class="text-sm font-medium">DodgeballHub</p>
+                    </a>
+                    <a href="jumprope.html" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                        <div class="text-4xl mb-2">🪢</div>
+                        <p class="text-sm font-medium">줄넘기 대회 매니저</p>
+                    </a>
+                    <a href="pe-mbti.html" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                        <div class="text-4xl mb-2">🏆</div>
+                        <p class="text-sm font-medium">체육 시간 MBTI</p>
+                    </a>
+                    <a href="classpet.html" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                        <div class="text-4xl mb-2">🐾</div>
+                        <p class="text-sm font-medium">클래스펫</p>
+                    </a>
+                    <a href="pepick.html" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                        <div class="text-4xl mb-2">🎲</div>
+                        <p class="text-sm font-medium">PePick!</p>
+                    </a>
+                    <a href="edumole.html" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                        <div class="text-4xl mb-2">🎮</div>
+                        <p class="text-sm font-medium">EduMole Pro</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-apple-secondary py-12 px-8 border-t border-apple-border">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-sm text-apple-text-secondary mb-2">Made with ❤️ by 근쌤</p>
+            <p class="text-xs text-apple-text-tertiary">v1.0.0 · 2025</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
