@@ -7,7 +7,7 @@ redirects = []
 [functions."*"]
 
 [build]
-publish = "/Users/iwongeun/Desktop/pe-portfolio"
+publish = "/Users/iwongeun/Desktop/개발_프로젝트/pe-portfolio"
 publishOrigin = "default"
 
 [build.environment]
