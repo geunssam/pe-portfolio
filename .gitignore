@@ -3,3 +3,5 @@ firebase-debug.log
 .env
 node_modules/
 .netlify/
+
+.superpowers/

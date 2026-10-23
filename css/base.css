@@ -1,0 +1,74 @@
+/* 모든 페이지가 함께 쓰는 기본 모양 */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--t-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 900; line-height: 1.22; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
+
+/* 노을빛 — 오른쪽 위에서 번지는 빛 */
+.sunlight { position: relative; isolation: isolate; }
+.sunlight::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  inset: 0 0 auto auto; width: min(760px, 120vw); height: min(560px, 90vw);
+  background: radial-gradient(closest-side, rgba(242, 166, 90, .30), transparent);
+  transform: translate(28%, -32%);
+  animation: breathe 12s ease-in-out infinite alternate;
+}
+@keyframes breathe { from { opacity: .75; } to { opacity: 1; transform: translate(24%, -28%) scale(1.06); } }
+
+/* 가운데 폭 + 양옆 여백 */
+.wrap {
+  width: 100%; max-width: calc(var(--content) + 2 * var(--gutter)); margin: 0 auto;
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+
+/* BMW M 세 줄 띠 */
+.stripe { display: flex; width: 48px; height: 3px; border-radius: 2px; overflow: hidden; }
+.stripe i { flex: 1; transform-origin: left; animation: draw .9s cubic-bezier(.2, .8, .2, 1) both; }
+.stripe i:nth-child(1) { background: var(--m-light); }
+.stripe i:nth-child(2) { background: var(--m-dark); animation-delay: .12s; }
+.stripe i:nth-child(3) { background: var(--m-red); animation-delay: .24s; }
+@keyframes draw { from { transform: scaleX(.2); } to { transform: scaleX(1); } }
+
+/* 위쪽 메뉴 줄 */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(246, 248, 252, .86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.brand { font-family: var(--f-display); font-weight: 900; font-size: 18px; text-decoration: none; }
+.topnav { display: flex; gap: 26px; font-size: 14px; }
+.topnav a { text-decoration: none; color: var(--soft); }
+.topnav a:hover { color: var(--ink); }
+
+/* 얇은 선으로 나눈 목록 */
+.list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--hair); }
+.list > li { border-bottom: 1px solid var(--hair); }
+.row { display: flex; align-items: center; gap: 14px; padding: 14px 0; text-decoration: none; min-width: 0; }
+.row-name { font-weight: 500; min-width: 0; }
+.row-meta { margin-left: auto; font-size: var(--t-small); color: var(--soft); white-space: nowrap; }
+a.row:hover .row-name { color: var(--sky); }
+.row img { width: 36px; height: 36px; border-radius: 9px; flex: none; }
+
+/* 버튼 */
+.btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; background: var(--ink); color: var(--white); border-radius: var(--radius); padding: 14px 22px; font-weight: 700; font-size: 15px; text-decoration: none; border: 0; cursor: pointer; font-family: inherit; }
+.btn:hover { background: var(--m-dark); }
+.link-more { color: var(--sky); font-weight: 700; font-size: 14px; text-decoration: none; background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit; }
+
+.small { font-size: var(--t-small); color: var(--soft); }
+.footer { padding-block: 32px 40px; font-family: var(--f-mono); font-size: 12px; color: var(--soft); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

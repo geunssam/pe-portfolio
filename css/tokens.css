@@ -1,0 +1,35 @@
+/* 근쌤의 서재 — 햇살 드는 낮의 서재 디자인 값 (색 · 글꼴 · 간격) */
+:root {
+  /* 색 */
+  --paper: #F6F8FC;      /* 바탕 */
+  --paper-deep: #DCE7F8; /* 프로필 동그라미 */
+  --ink: #0E1E46;        /* 글씨, 진한 버튼 */
+  --soft: #56627D;       /* 보조 글씨 */
+  --hair: #DFE5EF;       /* 얇은 선 */
+  --sky: #3D7BE0;        /* 링크 · 강조 */
+  --sun: #F2A65A;        /* 노을빛 */
+  --white: #FFFFFF;
+
+  /* BMW M 세 줄 */
+  --m-light: #5CB4E6;
+  --m-dark: #1E3F95;
+  --m-red: #E2261C;
+
+  /* 글꼴 */
+  --f-display: "Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --f-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  /* 글자 크기 단계 */
+  --t-hero: clamp(32px, 6.4vw, 64px);
+  --t-title: clamp(26px, 4.2vw, 42px);
+  --t-body: 16px;
+  --t-small: 13px;
+
+  /* 간격 */
+  --gutter: 20px;
+  --content: 1100px;
+  --radius: 12px;
+
+  color-scheme: light;
+}
