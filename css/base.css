@@ -18,7 +18,7 @@ p { margin: 0; }
 :focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
 
 /* 노을빛 — 오른쪽 위에서 번지는 빛 */
-.sunlight { position: relative; isolation: isolate; }
+.sunlight { position: relative; isolation: isolate; overflow-x: clip; }
 .sunlight::before {
   content: ""; position: absolute; z-index: -1; pointer-events: none;
   inset: 0 0 auto auto; width: min(760px, 120vw); height: min(560px, 90vw);
@@ -36,12 +36,13 @@ p { margin: 0; }
 }
 
 /* BMW M 세 줄 띠 */
-.stripe { display: flex; width: 48px; height: 3px; border-radius: 2px; overflow: hidden; }
-.stripe i { flex: 1; transform-origin: left; animation: draw .9s cubic-bezier(.2, .8, .2, 1) both; }
+/* 처음 열 때 왼쪽에서 그어짐 (멈춰 있어도 온전한 띠로 보이도록 채움 없이 재생) */
+.stripe { display: flex; width: 48px; height: 3px; border-radius: 2px; overflow: hidden; transform-origin: left; animation: draw .9s cubic-bezier(.2, .8, .2, 1); }
+.stripe i { flex: 1; }
 .stripe i:nth-child(1) { background: var(--m-light); }
-.stripe i:nth-child(2) { background: var(--m-dark); animation-delay: .12s; }
-.stripe i:nth-child(3) { background: var(--m-red); animation-delay: .24s; }
-@keyframes draw { from { transform: scaleX(.2); } to { transform: scaleX(1); } }
+.stripe i:nth-child(2) { background: var(--m-dark); }
+.stripe i:nth-child(3) { background: var(--m-red); }
+@keyframes draw { from { transform: scaleX(.25); } to { transform: scaleX(1); } }
 
 /* 위쪽 메뉴 줄 */
 .topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(246, 248, 252, .86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }

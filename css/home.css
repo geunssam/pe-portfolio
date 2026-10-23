@@ -1,0 +1,61 @@
+/* 메인 페이지 — 한 화면에 한 가지 이야기 */
+
+/* 휴대폰 메뉴 */
+.menu-btn { display: none; background: none; border: 0; padding: 8px 0 8px 12px; font: inherit; font-size: 14px; color: var(--soft); cursor: pointer; }
+.menu-panel { border-top: 1px solid var(--hair); background: var(--paper); }
+.menu-panel .wrap { display: grid; padding-block: 6px 14px; }
+.menu-panel a { padding: 12px 0; text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--hair); }
+.menu-panel a:last-child { border-bottom: 0; }
+
+/* 화면 한 장 */
+.screen { padding-block: 88px; }
+.screen .wrap { display: grid; gap: 28px; justify-items: start; }
+.screen-title { font-size: var(--t-title); }
+.screen .list { width: 100%; }
+
+/* 1. 첫 화면 */
+.hero { min-height: calc(100svh - 60px); display: flex; align-items: flex-end; padding-block: 48px 64px; }
+.hero-inner.wrap { gap: 18px; }
+.portrait { width: clamp(132px, 18vw, 184px); aspect-ratio: 1; border-radius: 50%; background: var(--paper-deep); overflow: hidden; position: relative; }
+.portrait img { position: absolute; left: 50%; bottom: -46%; width: 92%; height: auto; transform: translateX(-50%); }
+.who { font-size: 15px; color: var(--soft); }
+.who b { color: var(--ink); }
+.hero-title { font-size: var(--t-hero); line-height: 1.16; }
+
+/* 2. 만든 것 — 접힌 목록 */
+.app-list.is-collapsed .extra { display: none; }
+
+/* 5. 함께 일하기 */
+.contact { padding-bottom: 56px; }
+.contact-inner.wrap { gap: 18px; }
+.contact .btn { margin-top: 6px; }
+.channels { display: flex; gap: 20px; font-size: 14px; color: var(--soft); margin-top: 4px; }
+.channels a { text-decoration: none; }
+.channels a:hover { color: var(--ink); }
+
+/* 스크롤하면 살짝 떠오름 — 기본은 보이는 상태 */
+.reveal.is-pending .wrap { transform: translateY(18px); opacity: .35; }
+.reveal .wrap { transition: transform .7s cubic-bezier(.2, .8, .2, 1), opacity .7s ease; }
+
+/* 노트북 */
+@media (min-width: 860px) {
+  .app-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; border-top: 0; }
+  .app-list > li:nth-child(-n + 2) { border-top: 1px solid var(--hair); }
+  .screen { padding-block: 120px; }
+  .screen .wrap { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 64px; align-items: start; }
+  .screen .wrap > .screen-title { grid-row: span 3; position: sticky; top: 100px; }
+  .screen .wrap > :not(.screen-title) { grid-column: 2; }
+  /* 첫 화면·연락 화면은 한 줄로 쌓기 */
+  .screen .hero-inner.wrap, .screen .contact-inner.wrap { grid-template-columns: minmax(0, 1fr); }
+  .screen .hero-inner.wrap > *, .screen .contact-inner.wrap > * { grid-column: 1; grid-row: auto; }
+  .screen .contact-inner.wrap > .screen-title { position: static; }
+}
+
+/* 휴대폰 */
+@media (max-width: 640px) {
+  .topnav { display: none; }
+  .menu-btn { display: block; }
+  .screen { padding-block: 64px; }
+  .hero { min-height: calc(100svh - 60px); }
+}
+@media (min-width: 641px) { .menu-panel { display: none !important; } }

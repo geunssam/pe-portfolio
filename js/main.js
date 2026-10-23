@@ -1,202 +1,61 @@
-// ===================================
-// 근쌤의 체육 웹앱 포트폴리오
-// Toss-style Landing Page JS
-// ===================================
+// 근쌤의 서재 — 메인 페이지 동작 (JS가 없어도 내용은 모두 보이도록 만든다)
 
-document.addEventListener('DOMContentLoaded', () => {
-    initScrollAnimations();
-    initActiveNav();
-    initSmoothScroll();
-    initMobileMenu();
-    initCountUp();
-    initTagFilter();
-});
+// 휴대폰 메뉴 열고 닫기
+function initMenu() {
+  const btn = document.getElementById('menuBtn');
+  const panel = document.getElementById('menuPanel');
+  if (!btn || !panel) return;
 
-// ===================================
-// IntersectionObserver Scroll Animations
-// ===================================
-function initScrollAnimations() {
-    const elements = document.querySelectorAll('[data-animate]');
+  const setOpen = (open) => {
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? '닫기' : '메뉴';
+  };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -60px 0px'
+  btn.addEventListener('click', () => setOpen(panel.hidden));
+  panel.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) { setOpen(false); btn.focus(); } });
+}
+
+// 앱 목록: 5번째부터 접어 두고 "7개 모두 보기"로 펼침
+function initAppList() {
+  const list = document.getElementById('appList');
+  const more = document.getElementById('appMore');
+  if (!list || !more) return;
+
+  list.classList.add('is-collapsed');
+  more.hidden = false;
+  more.addEventListener('click', () => {
+    list.classList.remove('is-collapsed');
+    more.hidden = true;
+    list.querySelector('.extra a')?.focus();
+  });
+}
+
+// 화면이 들어올 때 살짝 떠오름 (화면 밖에 있는 섹션만 잠시 기다리게 함)
+function initReveal() {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  const sections = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('is-pending');
+        io.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.15 });
 
-    elements.forEach(el => observer.observe(el));
-}
-
-// ===================================
-// Active Navigation Link
-// ===================================
-function initActiveNav() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, {
-        threshold: 0.3,
-        rootMargin: '-64px 0px -40% 0px'
-    });
-
-    sections.forEach(section => observer.observe(section));
-}
-
-// ===================================
-// Smooth Scroll
-// ===================================
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            if (targetId === '#') return;
-
-            const target = document.querySelector(targetId);
-            if (target) {
-                const navHeight = 64;
-                const targetPos = target.offsetTop - navHeight;
-                window.scrollTo({ top: targetPos, behavior: 'smooth' });
-
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobileMenu');
-                if (mobileMenu && mobileMenu.classList.contains('open')) {
-                    mobileMenu.classList.remove('open');
-                    document.body.style.overflow = '';
-                }
-            }
-        });
-    });
-}
-
-// ===================================
-// Mobile Menu
-// ===================================
-function initMobileMenu() {
-    const btn = document.getElementById('mobileMenuBtn');
-    const menu = document.getElementById('mobileMenu');
-    if (!btn || !menu) return;
-
-    btn.addEventListener('click', () => {
-        const isOpen = menu.classList.toggle('open');
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-        // Toggle hamburger icon
-        const bars = btn.querySelectorAll('rect');
-        if (isOpen) {
-            bars[0].setAttribute('transform', 'rotate(45 12 6)');
-            bars[0].setAttribute('width', '20');
-            bars[1].style.opacity = '0';
-            bars[2].setAttribute('transform', 'rotate(-45 12 18)');
-            bars[2].setAttribute('width', '20');
-        } else {
-            bars[0].removeAttribute('transform');
-            bars[0].setAttribute('width', '18');
-            bars[1].style.opacity = '1';
-            bars[2].removeAttribute('transform');
-            bars[2].setAttribute('width', '14');
-        }
-    });
-}
-
-// ===================================
-// Count Up Animation
-// ===================================
-function initCountUp() {
-    const statNumbers = document.querySelectorAll('[data-count]');
-    if (!statNumbers.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCount(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    statNumbers.forEach(el => observer.observe(el));
-}
-
-function animateCount(el) {
-    const target = parseInt(el.getAttribute('data-count'), 10);
-    const suffix = el.getAttribute('data-suffix') || '';
-    const duration = 1500;
-    const startTime = performance.now();
-
-    function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-
-        // Ease out expo curve
-        const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-        const current = Math.round(easeOut * target);
-
-        el.textContent = current + suffix;
-
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        }
+  sections.forEach((section) => {
+    const top = section.getBoundingClientRect().top;
+    if (top > window.innerHeight) {
+      section.classList.add('is-pending');
+      io.observe(section);
     }
-
-    requestAnimationFrame(update);
+  });
 }
 
-// ===================================
-// Tag Filter
-// ===================================
-function initTagFilter() {
-    const buttons = document.querySelectorAll('.tag-filter');
-    const cards = document.querySelectorAll('.app-card[data-tag]');
-    if (!buttons.length || !cards.length) return;
-
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.getAttribute('data-filter');
-
-            // Update active button
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Filter cards
-            cards.forEach(card => {
-                const tag = card.getAttribute('data-tag');
-                if (filter === 'all' || tag === filter) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        });
-    });
-}
-
-// ===================================
-// Keyboard Navigation
-// ===================================
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (mobileMenu && mobileMenu.classList.contains('open')) {
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-    }
-});
+initMenu();
+initAppList();
+initReveal();
