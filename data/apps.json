@@ -1,0 +1,416 @@
+[
+  {
+    "id": "pepick",
+    "name": "PEPick!",
+    "category": "수업 도구",
+    "tagline": "체육 수업에 필요한 랜덤 선택 도구 모음",
+    "url": "https://pepick.netlify.app/",
+    "logo": "images/logos/pepick.png",
+    "screenshots": [
+      {
+        "src": "images/screenshots/pepick-main.png",
+        "alt": "PEPick 메인 화면"
+      },
+      {
+        "src": "images/screenshots/pepick-tag-game-attempt.png",
+        "alt": "PEPick 술래뽑기 결과"
+      },
+      {
+        "src": "images/screenshots/pepick-tag-action.png",
+        "alt": "PEPick 술래뽑기 액션"
+      },
+      {
+        "src": "images/screenshots/pepick-badge-modal.png",
+        "alt": "PEPick 배지 부여"
+      },
+      {
+        "src": "images/screenshots/pepick-app-initial.png",
+        "alt": "PEPick 앱 초기 화면"
+      }
+    ],
+    "features": [
+      {
+        "group": "",
+        "title": "술래뽑기",
+        "desc": "술래와 천사를 랜덤으로 선정하고 타이머로 게임을 관리합니다."
+      },
+      {
+        "group": "",
+        "title": "모둠뽑기",
+        "desc": "학생들을 모둠으로 랜덤 배정하여 팀을 구성합니다."
+      },
+      {
+        "group": "",
+        "title": "학급 관리",
+        "desc": "학생 명단을 등록하고 기본 모둠 이름을 설정합니다."
+      },
+      {
+        "group": "",
+        "title": "CSV/구글 시트 연동",
+        "desc": "학생 명단을 CSV 파일이나 구글 시트로 가져옵니다."
+      },
+      {
+        "group": "",
+        "title": "타이머 기능",
+        "desc": "게임 시간을 설정하고 관리할 수 있습니다."
+      },
+      {
+        "group": "",
+        "title": "전체화면 모드",
+        "desc": "수업 시간에 화면을 크게 보여줄 수 있습니다."
+      }
+    ],
+    "tech": {
+      "stack": "React v2.0.0",
+      "platform": "Netlify"
+    }
+  },
+  {
+    "id": "classpet",
+    "name": "클래스펫",
+    "category": "학급 경영",
+    "tagline": "게이미피케이션을 활용한 학급 경영 도우미",
+    "url": "https://classpet.netlify.app/",
+    "logo": "images/logos/classpet.png",
+    "screenshots": [
+      {
+        "src": "images/screenshots/classpet-dashboard.png",
+        "alt": "클래스펫 대시보드"
+      },
+      {
+        "src": "images/screenshots/classpet-timetable.png",
+        "alt": "클래스펫 시간표"
+      },
+      {
+        "src": "images/screenshots/classpet-petfarm.png",
+        "alt": "클래스펫 펫농장"
+      }
+    ],
+    "features": [
+      {
+        "group": "",
+        "title": "펫 농장 시스템",
+        "desc": "학생들이 키우는 가상 펫으로 동기부여를 제공합니다."
+      },
+      {
+        "group": "",
+        "title": "칭찬 스티커 관리",
+        "desc": "칭찬 기록을 쉽게 관리하고 알림을 보냅니다."
+      },
+      {
+        "group": "",
+        "title": "학생 감정 추적",
+        "desc": "학생들의 마음 상태를 체크하고 관리합니다."
+      },
+      {
+        "group": "",
+        "title": "시간표 관리",
+        "desc": "주간 시간표를 쉽게 관리하고 공유합니다."
+      },
+      {
+        "group": "",
+        "title": "통계 및 펫 도감",
+        "desc": "데이터 분석 화면과 펫 정보 도감을 제공합니다."
+      },
+      {
+        "group": "",
+        "title": "PWA 지원",
+        "desc": "오프라인에서도 사용 가능한 웹앱입니다."
+      }
+    ],
+    "tech": {
+      "stack": "PWA, Service Worker",
+      "platform": "Netlify"
+    }
+  },
+  {
+    "id": "dodgeball",
+    "name": "DodgeballHub",
+    "category": "경기 관리",
+    "tagline": "초등학교 피구 경기를 쉽게 관리하는 교사용 시스템",
+    "url": "https://dodgeball-app.vercel.app/teacher/dashboard",
+    "logo": "images/logos/dodgeball.png",
+    "screenshots": [
+      {
+        "src": "images/screenshots/dodgeball-dashboard.png",
+        "alt": "DodgeballHub 메인 대시보드"
+      },
+      {
+        "src": "images/screenshots/dodgeball-teams.png",
+        "alt": "DodgeballHub 팀 구성"
+      },
+      {
+        "src": "images/screenshots/dodgeball-scoring.png",
+        "alt": "DodgeballHub 점수 기록"
+      },
+      {
+        "src": "images/screenshots/dodgeball-results.png",
+        "alt": "DodgeballHub 경기 결과"
+      }
+    ],
+    "features": [
+      {
+        "group": "",
+        "title": "경기 일정 관리",
+        "desc": "피구 경기 일정을 쉽게 등록하고 관리할 수 있습니다."
+      },
+      {
+        "group": "",
+        "title": "팀 구성 및 점수 기록",
+        "desc": "팀을 구성하고 실시간으로 점수를 기록합니다."
+      },
+      {
+        "group": "",
+        "title": "대시보드",
+        "desc": "경기 현황을 한눈에 파악할 수 있는 대시보드를 제공합니다."
+      },
+      {
+        "group": "",
+        "title": "교사 전용 기능",
+        "desc": "교사만 접근 가능한 관리 기능을 제공합니다."
+      }
+    ],
+    "tech": {
+      "stack": "Next.js, React",
+      "platform": "Vercel"
+    }
+  },
+  {
+    "id": "jumprope",
+    "name": "줄넘기 대회 매니저",
+    "category": "대회 관리",
+    "tagline": "줄넘기 대회 운영을 위한 종합 관리 도구",
+    "url": "https://jumprope-competition-manager.netlify.app/",
+    "logo": "images/logos/jumprope.png",
+    "screenshots": [
+      {
+        "src": "images/screenshots/jumprope-register.png",
+        "alt": "줄넘기 대회 - 회원가입"
+      },
+      {
+        "src": "images/screenshots/jumprope-local-main.png",
+        "alt": "줄넘기 대회 - 메인 화면"
+      },
+      {
+        "src": "images/screenshots/jumprope-recording.png",
+        "alt": "줄넘기 대회 - 기록 입력"
+      },
+      {
+        "src": "images/screenshots/jumprope-stats.png",
+        "alt": "줄넘기 대회 - 통계"
+      },
+      {
+        "src": "images/screenshots/jumprope-leaderboard.png",
+        "alt": "줄넘기 대회 - 순위표"
+      }
+    ],
+    "features": [
+      {
+        "group": "",
+        "title": "대회 일정 관리",
+        "desc": "줄넘기 대회 일정을 체계적으로 관리합니다."
+      },
+      {
+        "group": "",
+        "title": "참가자 등록 및 기록",
+        "desc": "참가자 정보를 등록하고 기록을 관리합니다."
+      },
+      {
+        "group": "",
+        "title": "실시간 순위 집계",
+        "desc": "대회 진행 중 실시간으로 순위를 집계합니다."
+      },
+      {
+        "group": "",
+        "title": "통계 및 리포트",
+        "desc": "대회 통계를 분석하고 리포트를 생성합니다."
+      }
+    ],
+    "tech": {
+      "stack": "React, Lucide Icons",
+      "platform": "Netlify"
+    }
+  },
+  {
+    "id": "baseball",
+    "name": "야구 경기 기록",
+    "category": "경기 기록",
+    "tagline": "발야구 경기의 점수와 기록을 실시간으로 관리",
+    "url": "https://baseball-firebase.vercel.app/",
+    "logo": "images/logos/baseball.png",
+    "screenshots": [
+      {
+        "src": "images/screenshots/baseball-gamescreen.png",
+        "alt": "야구 경기 기록 - 경기 화면"
+      },
+      {
+        "src": "images/screenshots/baseball-scoreboard.png",
+        "alt": "야구 경기 기록 - 스코어보드"
+      },
+      {
+        "src": "images/screenshots/baseball-input.png",
+        "alt": "야구 경기 기록 - 기록 입력"
+      }
+    ],
+    "features": [
+      {
+        "group": "",
+        "title": "실시간 점수 입력",
+        "desc": "경기 중 실시간으로 점수를 입력하고 관리합니다."
+      },
+      {
+        "group": "",
+        "title": "경기 기록 저장",
+        "desc": "모든 경기 기록을 Firebase에 안전하게 저장합니다."
+      },
+      {
+        "group": "",
+        "title": "모바일 최적화 UI",
+        "desc": "터치 최적화된 인터페이스로 편리하게 사용합니다."
+      },
+      {
+        "group": "",
+        "title": "통계 분석",
+        "desc": "경기 통계를 분석하고 시각화합니다."
+      }
+    ],
+    "tech": {
+      "stack": "Firebase, 모바일 최적화",
+      "platform": "Vercel"
+    }
+  },
+  {
+    "id": "pe-mbti",
+    "name": "근쌤의 체육 시간 MBTI",
+    "category": "재미 · 진단",
+    "tagline": "체육 시간 성격 유형을 재미있게 진단하는 테스트",
+    "url": "http://pe-playground.com/",
+    "logo": "images/logos/pe-mbti.png",
+    "screenshots": [
+      {
+        "src": "images/screenshots/mbti-hub.png",
+        "alt": "체육 시간 MBTI - 테스트 선택 허브"
+      },
+      {
+        "src": "images/screenshots/mbti-result.png",
+        "alt": "체육 시간 MBTI - 테스트 시작"
+      }
+    ],
+    "features": [
+      {
+        "group": "",
+        "title": "오리지널 Ver.",
+        "desc": "체육 시간 유형을 MBTI로 파악하는 기본 테스트입니다."
+      },
+      {
+        "group": "",
+        "title": "동물농장 Ver.",
+        "desc": "자신의 체육 동물 유형을 재미있게 진단합니다."
+      },
+      {
+        "group": "",
+        "title": "파워업 메뉴 Ver.",
+        "desc": "에너지 회복 음식을 선택하는 특별한 버전입니다."
+      },
+      {
+        "group": "",
+        "title": "다양한 결과",
+        "desc": "각 유형별 맞춤 결과와 설명을 제공합니다."
+      }
+    ],
+    "tech": {
+      "stack": "React",
+      "platform": "Custom Domain"
+    }
+  },
+  {
+    "id": "edumole",
+    "name": "EduMole Pro v6.2",
+    "category": "게임 학습",
+    "tagline": "두더지 게임(Whack-A-Mole)으로 즐겁게 배우는 학습 관리 시스템",
+    "url": "https://edumole-pro.netlify.app/",
+    "logo": "images/logos/edumole.png",
+    "screenshots": [
+      {
+        "src": "images/screenshots/edumole-hub.png",
+        "alt": "EduMole Pro - 게임 허브"
+      },
+      {
+        "src": "images/screenshots/edumole-pin-entry.png",
+        "alt": "EduMole Pro - 입장 코드 입력"
+      },
+      {
+        "src": "images/screenshots/edumole-dashboard.png",
+        "alt": "EduMole Pro - 교사 대시보드"
+      },
+      {
+        "src": "images/screenshots/edumole-quiz-manage.png",
+        "alt": "EduMole Pro - 퀴즈 관리"
+      },
+      {
+        "src": "images/screenshots/edumole-analytics.png",
+        "alt": "EduMole Pro - 성과 분석"
+      },
+      {
+        "src": "images/screenshots/edumole-gameplay.png",
+        "alt": "EduMole Pro - 두더지 게임"
+      }
+    ],
+    "features": [
+      {
+        "group": "학생 기능",
+        "title": "게임 기반 학습",
+        "desc": "두더지 게임 방식으로 문제를 풀며 즐겁게 학습합니다."
+      },
+      {
+        "group": "학생 기능",
+        "title": "시간 제한 도전",
+        "desc": "30초 내 최대한 많은 문제를 정답 맞히기에 도전합니다."
+      },
+      {
+        "group": "학생 기능",
+        "title": "실시간 피드백",
+        "desc": "정답과 오답을 즉각 확인하며 학습 효과를 높입니다."
+      },
+      {
+        "group": "학생 기능",
+        "title": "간편한 입장",
+        "desc": "입장 코드(예: 6101홍길동)로 쉽게 게임에 참여합니다."
+      },
+      {
+        "group": "교사 기능",
+        "title": "퀴즈 관리",
+        "desc": "새로운 문제 세트를 제작하고 편집할 수 있습니다."
+      },
+      {
+        "group": "교사 기능",
+        "title": "일괄 문항 등록",
+        "desc": "스프레드시트에서 문제를 복사해 대량으로 등록합니다."
+      },
+      {
+        "group": "교사 기능",
+        "title": "학급 관리",
+        "desc": "학급을 등록하고 학생 명렬표를 일괄 등록합니다."
+      },
+      {
+        "group": "교사 기능",
+        "title": "성과 분석",
+        "desc": "학생별 점수, 문항별 정답률 통계를 확인합니다."
+      },
+      {
+        "group": "교사 기능",
+        "title": "데이터 대시보드",
+        "desc": "누적 결과 현황을 한눈에 조회할 수 있습니다."
+      },
+      {
+        "group": "교사 기능",
+        "title": "교사 인증",
+        "desc": "비밀번호로 교사 전용 기능을 보호합니다."
+      }
+    ],
+    "tech": {
+      "stack": "Firebase, Lucide Icons",
+      "platform": "Firebase Hosting"
+    }
+  }
+]

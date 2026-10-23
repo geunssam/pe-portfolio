@@ -1,0 +1,38 @@
+/* 앱 상세 페이지 */
+
+.detail-hero { padding-block: 56px 40px; }
+.detail-hero-inner.wrap { display: grid; gap: 14px; justify-items: start; }
+.app-logo { width: 64px; height: 64px; border-radius: 16px; }
+.detail-category { color: var(--sky); font-weight: 700; font-size: 14px; margin-top: 6px; }
+.detail-title { font-size: var(--t-title); }
+.detail-tagline { color: var(--soft); max-width: 40ch; }
+.detail-hero .btn { margin-top: 8px; }
+
+/* 화면 모음 — 가로로 넘겨 보기 */
+.shots {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  padding-block: 8px 20px;
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px), calc((100vw - var(--content)) / 2));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+  scrollbar-width: thin;
+}
+.shot { margin: 0; flex: none; scroll-snap-align: start; border: 1px solid var(--hair); border-radius: var(--radius); overflow: hidden; background: var(--white); }
+.shot img { height: clamp(260px, 52vw, 440px); width: auto; max-width: none; }
+
+.detail-block { padding-block: 40px; }
+.detail-grid.wrap { display: grid; gap: 22px; }
+.detail-h2 { font-size: clamp(22px, 3vw, 28px); }
+.detail-col { min-width: 0; display: grid; gap: 18px; align-content: start; }
+
+.feature-group { font-family: var(--f-body); font-weight: 700; font-size: 14px; color: var(--sky); letter-spacing: 0; margin-top: 8px; }
+.features .feature { display: grid; gap: 2px; padding: 14px 0; }
+.features .feature b { font-weight: 700; }
+.features .feature span { color: var(--soft); font-size: 15px; }
+.tech { margin-top: 4px; }
+
+@media (min-width: 860px) {
+  .detail-hero { padding-block: 88px 56px; }
+  .detail-block { padding-block: 64px; }
+  .detail-grid.wrap { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 64px; align-items: start; }
+  .detail-h2 { position: sticky; top: 100px; }
+}
