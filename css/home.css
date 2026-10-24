@@ -29,6 +29,17 @@
 .tab-panels, .tab-panel { display: grid; gap: 28px; width: 100%; justify-items: start; }
 .tabs-ready .tab-panel .list { border-top: 0; }
 
+/* 4. 강의 — 강사 이력 (평소엔 접힘) */
+.career { width: 100%; }
+.career summary { list-style: none; cursor: pointer; color: var(--sky); font-weight: 700; font-size: 14px; width: fit-content; }
+.career summary::-webkit-details-marker { display: none; }
+.career summary::after { content: " ↓"; }
+.career[open] summary::after { content: " ↑"; }
+.career-body { display: grid; gap: 12px; margin-top: 22px; }
+.career-h { font-family: var(--f-body); font-weight: 700; font-size: 13px; color: var(--soft); letter-spacing: 0; margin-top: 10px; }
+.career .row { padding: 11px 0; }
+.career .row-name { font-size: 15px; font-weight: 400; }
+
 /* 2. 만든 것 — 접힌 목록 */
 .app-list.is-collapsed .extra { display: none; }
 
