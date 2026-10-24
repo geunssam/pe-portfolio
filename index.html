@@ -7,7 +7,14 @@
   <meta name="description" content="초등 체육 교사이자 바이브 코더 근쌤. 읽고, 생각하고, 쓰거나 만듭니다.">
   <meta property="og:title" content="근쌤의 서재">
   <meta property="og:description" content="읽고, 생각하고, 쓰거나 만듭니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://geunssam-pe.netlify.app/">
+  <meta property="og:image" content="https://geunssam-pe.netlify.app/images/brand/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#F6F8FC">
+  <link rel="icon" href="images/brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="images/brand/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,12 +80,31 @@
     <section id="writing" class="screen reveal">
       <div class="wrap">
         <h2 class="screen-title">읽고 생각한 것을<br>글로 씁니다.</h2>
-        <ul class="list">
-          <li><a class="row" href="https://brunch.co.kr/@zoomwk/93" target="_blank" rel="noopener noreferrer"><span class="row-name">AI시대 교사로 살아남기 — AI 7030, 인식의 대전환</span></a></li>
-          <li><a class="row" href="https://brunch.co.kr/@zoomwk/94" target="_blank" rel="noopener noreferrer"><span class="row-name">AI 시대를 위한 『자경문』</span></a></li>
-          <li><a class="row" href="https://brunch.co.kr/@zoomwk/116" target="_blank" rel="noopener noreferrer"><span class="row-name">AI를 활용한 워크플로우 정리 사례</span></a></li>
-        </ul>
-        <a class="link-more" href="https://brunch.co.kr/@zoomwk" target="_blank" rel="noopener noreferrer">브런치에서 더 읽기 →</a>
+        <div class="tabs" role="tablist" aria-label="글 종류" hidden>
+          <button class="tab" type="button" role="tab" id="tab-essay" aria-controls="panel-essay" aria-selected="true">AI · 교육</button>
+          <button class="tab" type="button" role="tab" id="tab-books" aria-controls="panel-books" aria-selected="false" tabindex="-1">북리뷰</button>
+        </div>
+        <div class="tab-panels">
+          <div class="tab-panel" id="panel-essay" role="tabpanel" aria-labelledby="tab-essay">
+            <ul class="list">
+              <li><a class="row" href="https://brunch.co.kr/@zoomwk/93" target="_blank" rel="noopener noreferrer"><span class="row-name">AI시대 교사로 살아남기 — AI 7030, 인식의 대전환</span></a></li>
+              <li><a class="row" href="https://brunch.co.kr/@zoomwk/94" target="_blank" rel="noopener noreferrer"><span class="row-name">AI 시대를 위한 『자경문』</span></a></li>
+              <li><a class="row" href="https://brunch.co.kr/@zoomwk/116" target="_blank" rel="noopener noreferrer"><span class="row-name">AI를 활용한 워크플로우 정리 사례</span></a></li>
+            </ul>
+            <a class="link-more" href="https://brunch.co.kr/@zoomwk" target="_blank" rel="noopener noreferrer">브런치 바로가기 →</a>
+          </div>
+          <!-- 북리뷰: 브런치 공감 수 상위 5편 (2026-10-24 기준, 공개 조회수는 브런치가 제공하지 않음) -->
+          <div class="tab-panel" id="panel-books" role="tabpanel" aria-labelledby="tab-books">
+            <ul class="list">
+              <li><a class="row" href="https://brunch.co.kr/@zoomwk/16" target="_blank" rel="noopener noreferrer"><span class="row-name">《공부머리 독서법》</span><span class="row-meta">최승필</span></a></li>
+              <li><a class="row" href="https://brunch.co.kr/@zoomwk/84" target="_blank" rel="noopener noreferrer"><span class="row-name">《책 읽고 글쓰기》</span><span class="row-meta">나민애</span></a></li>
+              <li><a class="row" href="https://brunch.co.kr/@zoomwk/83" target="_blank" rel="noopener noreferrer"><span class="row-name">《내 삶에 예술을 들일 때, 니체》</span><span class="row-meta">박찬국</span></a></li>
+              <li><a class="row" href="https://brunch.co.kr/@zoomwk/13" target="_blank" rel="noopener noreferrer"><span class="row-name">《백범일지》 중 〈나의 소원〉</span><span class="row-meta">김구</span></a></li>
+              <li><a class="row" href="https://brunch.co.kr/@zoomwk/89" target="_blank" rel="noopener noreferrer"><span class="row-name">《2025 교육자를 위한 디아도라》</span></a></li>
+            </ul>
+            <a class="link-more" href="https://brunch.co.kr/magazine/ncgb" target="_blank" rel="noopener noreferrer">근쌤 책방 바로가기 →</a>
+          </div>
+        </div>
       </div>
     </section>
 

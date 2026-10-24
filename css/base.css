@@ -12,21 +12,22 @@ body {
   overflow-x: hidden;
 }
 img { max-width: 100%; display: block; }
+[hidden] { display: none !important; }
 a { color: inherit; }
 h1, h2, h3 { font-family: var(--f-display); font-weight: 900; line-height: 1.22; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
 p { margin: 0; }
 :focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
 
 /* 노을빛 — 오른쪽 위에서 번지는 빛 */
-.sunlight { position: relative; isolation: isolate; overflow-x: clip; }
+/* 화면 폭 안에서만 그려서(옆으로 삐져나가지 않게) 가로 스크롤이 생기지 않는다 */
+.sunlight { position: relative; isolation: isolate; }
 .sunlight::before {
   content: ""; position: absolute; z-index: -1; pointer-events: none;
-  inset: 0 0 auto auto; width: min(760px, 120vw); height: min(560px, 90vw);
-  background: radial-gradient(closest-side, rgba(242, 166, 90, .30), transparent);
-  transform: translate(28%, -32%);
+  top: 0; left: 0; right: 0; height: 640px;
+  background: radial-gradient(min(620px, 90vw) min(440px, 70vw) at 100% 0%, rgba(242, 166, 90, .32), transparent 72%);
   animation: breathe 12s ease-in-out infinite alternate;
 }
-@keyframes breathe { from { opacity: .75; } to { opacity: 1; transform: translate(24%, -28%) scale(1.06); } }
+@keyframes breathe { from { opacity: .7; } to { opacity: 1; } }
 
 /* 가운데 폭 + 양옆 여백 */
 .wrap {

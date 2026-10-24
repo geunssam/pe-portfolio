@@ -56,6 +56,37 @@ function initReveal() {
   });
 }
 
+// 쓴 글 탭 (AI · 교육 / 북리뷰) — 좌우 화살표로도 이동
+function initTabs() {
+  const tablist = document.querySelector('.tabs');
+  if (!tablist) return;
+  const tabs = [...tablist.querySelectorAll('[role="tab"]')];
+
+  const select = (tab) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  });
+
+  tablist.hidden = false;
+  tablist.parentElement.classList.add('tabs-ready');
+  select(tabs[0]);
+}
+
 initMenu();
 initAppList();
+initTabs();
 initReveal();
