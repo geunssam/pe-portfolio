@@ -20,7 +20,7 @@ HEAD = """<!DOCTYPE html>
   <meta name="theme-color" content="#F6F8FC">
   <meta property="og:title" content="{name} · 근쌤의 서재">
   <meta property="og:description" content="{tagline}">
-  <meta property="og:image" content="https://geunssam-pe.netlify.app/images/brand/og-image.png">
+  <meta property="og:image" content="https://geunssam-library.netlify.app/images/brand/og-image.png">
   <link rel="icon" href="images/brand/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="images/brand/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
