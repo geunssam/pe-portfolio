@@ -86,7 +86,38 @@ function initTabs() {
   select(tabs[0]);
 }
 
+// 메일 주소 복사 (복사가 막힌 환경이면 주소 글자를 선택해 둠)
+function initCopyEmail() {
+  const btn = document.getElementById('copyEmail');
+  const email = document.getElementById('contactEmail');
+  if (!btn || !email) return;
+  btn.hidden = false;
+
+  const done = (label) => {
+    btn.textContent = label;
+    setTimeout(() => { btn.textContent = '복사'; }, 1600);
+  };
+  const selectText = () => {
+    const range = document.createRange();
+    range.selectNodeContents(email);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  };
+
+  btn.addEventListener('click', () => {
+    const text = btn.dataset.copy;
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(() => done('복사됨'), () => { selectText(); done('선택됨'); });
+    } else {
+      selectText();
+      done('선택됨');
+    }
+  });
+}
+
 initMenu();
 initAppList();
 initTabs();
+initCopyEmail();
 initReveal();
