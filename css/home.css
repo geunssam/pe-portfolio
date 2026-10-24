@@ -48,7 +48,7 @@
 .contact-inner.wrap { gap: 18px; }
 .contact .btn { margin-top: 6px; }
 .email-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.email { font-family: var(--f-mono); font-size: clamp(18px, 2.4vw, 22px); text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--hair); user-select: all; }
+.email { font-family: var(--f-mono); font-size: 15px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--hair); user-select: all; }
 .email:hover { color: var(--sky); border-bottom-color: var(--sky); }
 .copy-btn { background: none; border: 1px solid var(--hair); border-radius: 999px; padding: 4px 12px; font: inherit; font-size: 13px; color: var(--soft); cursor: pointer; }
 .copy-btn:hover { color: var(--ink); border-color: var(--soft); }

@@ -40,7 +40,7 @@ def check_page(path: Path) -> list:
 
 def main() -> int:
     total = 0
-    pages = [ROOT / "index.html"] + [ROOT / f"{d}.html" for d in DETAIL]
+    pages = [ROOT / "index.html", ROOT / "apply.html", ROOT / "thanks.html"] + [ROOT / f"{d}.html" for d in DETAIL]
     for page in pages:
         if not page.exists():
             print(f"{page.name}: 페이지 없음")
