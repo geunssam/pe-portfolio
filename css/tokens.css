@@ -9,6 +9,14 @@
   --sky: #3D7BE0;        /* 링크 · 강조 */
   --sun: #F2A65A;        /* 노을빛 */
   --white: #FFFFFF;
+  --sun-btn: #FFB86B;    /* 첫 화면 협업 버튼 (노을빛) */
+
+  /* 섹션 파스텔 바탕 */
+  --pastel-sky: #EAF2FF;
+  --pastel-peach: #FFF2E6;
+  --pastel-mint: #E8F6EF;
+  --pastel-lavender: #F0EDFA;
+  --hair-tint: rgba(14, 30, 70, .10); /* 파스텔 위에서도 보이는 선 */
 
   /* BMW M 세 줄 */
   --m-light: #5CB4E6;
