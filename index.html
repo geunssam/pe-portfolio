@@ -53,59 +53,10 @@
   <main>
     <!-- 1. 첫 화면: 프로필 -->
     <section id="top" class="hero">
-      <img class="hero-bg" src="images/hero/study-1280.jpg" srcset="images/hero/study-1280.jpg 1280w, images/hero/study-2400.jpg 2400w" sizes="100vw" alt="" fetchpriority="high">
-
-      <!-- 바람 효과: 같은 그림에서 잎·책장·벽 그림자 자리만 오려 겹친 뒤, 바람결 무늬로 살짝 밀었다 당김.
-           좌표는 그림 크기(1000×562.5) 기준. 실패해도 아래 정지 그림이 그대로 보임 -->
-      <svg class="hero-fx" id="heroFx" viewBox="0 0 1000 562.5" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <defs>
-          <image id="fxImg" href="images/hero/study-1280.jpg" width="1000" height="562.5"/>
-          <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
-
-          <!-- 잎: 잘게 흔들림 -->
-          <filter id="windLeaf" filterUnits="userSpaceOnUse" x="0" y="0" width="1000" height="562.5">
-            <feTurbulence type="fractalNoise" baseFrequency="0.028 0.055" numOctaves="2" seed="4" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G">
-              <animate attributeName="scale" values="0;8;2.5;7;1;5.5;0" dur="5.2s" repeatCount="indefinite"/>
-            </feDisplacementMap>
-          </filter>
-          <!-- 벽에 비친 잎 그림자: 크고 느리게 -->
-          <filter id="windShadow" filterUnits="userSpaceOnUse" x="150" y="0" width="460" height="380">
-            <feTurbulence type="fractalNoise" baseFrequency="0.009 0.018" numOctaves="1" seed="9" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G">
-              <animate attributeName="scale" values="0;13;4;11;0" dur="8s" repeatCount="indefinite"/>
-            </feDisplacementMap>
-          </filter>
-          <!-- 책장: 가끔 한 번 들썩 -->
-          <filter id="windPage" filterUnits="userSpaceOnUse" x="80" y="270" width="370" height="190">
-            <feTurbulence type="fractalNoise" baseFrequency="0.018 0.04" numOctaves="1" seed="2" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G">
-              <animate attributeName="scale" values="0;0;0;10;3;7;0;0" dur="6.5s" repeatCount="indefinite"/>
-            </feDisplacementMap>
-          </filter>
-
-          <mask id="mLeaf" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="562.5">
-            <g filter="url(#feather)" fill="#fff">
-              <ellipse cx="95" cy="190" rx="115" ry="190"/>
-              <ellipse cx="70" cy="480" rx="105" ry="95"/>
-              <ellipse cx="725" cy="150" rx="80" ry="185"/>
-              <ellipse cx="955" cy="485" rx="70" ry="95"/>
-            </g>
-          </mask>
-          <mask id="mShadow" maskUnits="userSpaceOnUse" x="150" y="0" width="460" height="380">
-            <ellipse cx="330" cy="185" rx="140" ry="140" fill="#fff" filter="url(#feather)"/>
-          </mask>
-          <mask id="mPage" maskUnits="userSpaceOnUse" x="80" y="270" width="370" height="190">
-            <ellipse cx="250" cy="360" rx="140" ry="62" fill="#fff" filter="url(#feather)"/>
-          </mask>
-        </defs>
-        <g mask="url(#mShadow)"><use href="#fxImg" filter="url(#windShadow)"/></g>
-        <g mask="url(#mPage)"><use href="#fxImg" filter="url(#windPage)"/></g>
-        <g mask="url(#mLeaf)"><use href="#fxImg" filter="url(#windLeaf)"/></g>
-      </svg>
-
-      <!-- 창가 햇빛 속 먼지 -->
-      <div class="motes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <!-- 첫 화면 배경: 채널아트를 Gemini(Veo)로 만든 8.5초 반복 영상 (책장 넘어감·잎 흔들림). 소리 없음 -->
+      <video class="hero-bg" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/hero/study-loop-poster.jpg" aria-hidden="true">
+        <source src="images/hero/study-loop.mp4" type="video/mp4">
+      </video>
       <div class="wrap hero-inner">
         <div class="portrait">
           <img src="images/profile/geunssam-wave.png" alt="손 흔드는 근쌤 캐릭터" width="410" height="693">
