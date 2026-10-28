@@ -116,8 +116,31 @@ function initCopyEmail() {
   });
 }
 
+// 첫 화면 바람 효과: 아래 정지 그림과 같은 해상도로 맞추고, 화면 밖이거나 움직임 줄이기 설정이면 멈춤
+function initHeroWind() {
+  const fx = document.getElementById('heroFx');
+  const bg = document.querySelector('.hero-bg');
+  if (!fx || !fx.pauseAnimations) return;
+
+  const syncSrc = () => {
+    const src = bg && bg.currentSrc;
+    if (src) document.getElementById('fxImg').setAttribute('href', src);
+  };
+  if (bg && bg.complete) syncSrc(); else bg?.addEventListener('load', syncSrc, { once: true });
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reduce.matches) { fx.pauseAnimations(); return; }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) fx.unpauseAnimations(); else fx.pauseAnimations();
+    }).observe(fx);
+  }
+}
+
 initMenu();
 initAppList();
 initTabs();
 initCopyEmail();
+initHeroWind();
 initReveal();
